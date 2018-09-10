@@ -1,0 +1,6 @@
+pane	tmux4	0	:ssh	1	:*	0	:/home/vadim	1	ssh	:ssh works
+pane	tmux4	0	:ssh	1	:*	1	:/home/vadim	0	ssh	:ssh front
+pane	tmux4	0	:ssh	1	:*	2	:/home/vadim	0	ssh	:ssh subsmag
+pane	tmux4	0	:ssh	1	:*	3	:/home/vadim	0	ssh	:ssh pravo
+window	tmux4	0	1	:*	49cd,150x37,0,0{57x37,0,0[57x19,0,0,0,57x17,0,20,3],92x37,58,0[92x13,58,0,1,92x23,58,14,2]}
+state	tmux4	

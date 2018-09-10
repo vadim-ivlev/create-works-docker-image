@@ -1,0 +1,6 @@
+sudo: required
+services: docker
+script:
+  - docker build -t rgru/works .
+after_script:
+- docker images

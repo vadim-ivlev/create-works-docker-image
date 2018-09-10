@@ -1,0 +1,4 @@
+pane	0	0	:vim	1	:*	0	:/home/vadim/Documents/projects/my-project-name	1	vim	:vim README.md
+pane	0	0	:vim	1	:*	1	:/home/vadim/Documents/projects/my-project-name	0	bash	:
+window	0	0	1	:*	a313,173x48,0,0{118x48,0,0,0,54x48,119,0,1}
+state	0	

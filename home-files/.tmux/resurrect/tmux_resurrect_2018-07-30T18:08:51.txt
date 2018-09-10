@@ -1,0 +1,4 @@
+pane	0	0	:ssh	1	:*	0	:/home/vadim	0	bash	:
+pane	0	0	:ssh	1	:*	1	:/home/vadim	1	ssh	:ssh works
+window	0	0	1	:*	67b8,120x37,0,0{60x37,0,0,0,59x37,61,0,1}
+state	0	

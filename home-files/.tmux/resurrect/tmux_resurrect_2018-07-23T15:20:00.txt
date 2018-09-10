@@ -1,0 +1,4 @@
+pane	0	0	:vim	1	:*	0	:/home/vadim/projects/composetest	1	vim	:vim Dockerfile
+pane	0	0	:vim	1	:*	1	:/home/vadim	0	bash	:
+window	0	0	1	:*	6f0e,174x46,0,0{87x46,0,0,1,86x46,88,0,2}
+state	0	

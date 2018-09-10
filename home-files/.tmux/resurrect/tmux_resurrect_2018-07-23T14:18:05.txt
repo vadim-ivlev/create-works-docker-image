@@ -1,0 +1,4 @@
+pane	0	0	:bash	1	:*	0	:/home/vadim	0	bash	:
+pane	0	0	:bash	1	:*	1	:/home/vadim	1	bash	:
+window	0	0	1	:*	ef09,174x46,0,0{87x46,0,0,0,86x46,88,0,1}
+state	0	

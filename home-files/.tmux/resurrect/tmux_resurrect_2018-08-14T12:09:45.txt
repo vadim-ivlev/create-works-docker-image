@@ -1,0 +1,4 @@
+pane	0	0	:mc	1	:*	0	:/home/vadim/Documents/projects/my-project-name	1	mc	:mc
+pane	0	0	:mc	1	:*	1	:/home/vadim/Documents/projects/my-project-name	0	bash	:
+window	0	0	1	:*	2316,173x48,0,0{118x48,0,0,1,54x48,119,0,2}
+state	0	

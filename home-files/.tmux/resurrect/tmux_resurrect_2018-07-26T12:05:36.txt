@@ -1,0 +1,6 @@
+pane	0	0	:fish	1	:*	0	:/home/vadim/Documents/projects/php-access-redis-test	0	bash	:
+pane	0	0	:fish	1	:*	1	:/home/vadim	1	fish	:fish
+pane	0	1	:mc	0	:-	0	:/home/vadim/.tmux	1	mc	:mc
+window	0	0	1	:*	d536,147x41,0,0{77x41,0,0,0,69x41,78,0,2}
+window	0	1	0	:-	b300,147x41,0,0,3
+state	0	

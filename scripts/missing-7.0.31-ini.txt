@@ -1,0 +1,23 @@
+
+Difference in installed PHP extensions
+between Works server and Docker container.
+
+
+works = 55 extensions
+['Core', 'Modules]', 'OPcache', 'PDO', 'Phar', 'Reflection', 'SPL', 'SimpleXML', 'Zend', '[PHP', '[Zend', 'bcmath', 'calendar', 'ctype', 'curl', 'date', 'dom', 'exif', 'fileinfo', 'filter', 'ftp', 'gd', 'gettext', 'hash', 'iconv', 'json', 'libxml', 'mbstring', 'mcrypt', 'memcache', 'memcached', 'mysqli', 'mysqlnd', 'openssl', 'pcntl', 'pcre', 'pdo_mysql', 'posix', 'readline', 'session', 'shmop', 'sockets', 'ssh2', 'standard', 'sysvmsg', 'sysvsem', 'sysvshm', 'tokenizer', 'wddx', 'xml', 'xmlreader', 'xmlwriter', 'xsl', 'zip', 'zlib']
+
+
+docker = 51 extensions
+['Core', 'Modules]', 'PDO', 'Phar', 'Reflection', 'SPL', 'SimpleXML', 'Xdebug', '[PHP', '[Zend', 'bz2', 'ctype', 'curl', 'date', 'dom', 'fileinfo', 'filter', 'ftp', 'gd', 'hash', 'iconv', 'imagick', 'imap', 'intl', 'json', 'libxml', 'mbstring', 'memcached', 'mongodb', 'mysqli', 'mysqlnd', 'openssl', 'pcre', 'pdo_mysql', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'posix', 'readline', 'redis', 'session', 'soap', 'sqlite3', 'standard', 'tokenizer', 'xdebug', 'xml', 'xmlreader', 'xmlwriter', 'zip', 'zlib']
+
+
+
+works & docker = 38 extensions
+['Core', 'Modules]', 'PDO', 'Phar', 'Reflection', 'SPL', 'SimpleXML', '[PHP', '[Zend', 'ctype', 'curl', 'date', 'dom', 'fileinfo', 'filter', 'ftp', 'gd', 'hash', 'iconv', 'json', 'libxml', 'mbstring', 'memcached', 'mysqli', 'mysqlnd', 'openssl', 'pcre', 'pdo_mysql', 'posix', 'readline', 'session', 'standard', 'tokenizer', 'xml', 'xmlreader', 'xmlwriter', 'zip', 'zlib']
+
+works - docker = 17 extensions
+['OPcache', 'Zend', 'bcmath', 'calendar', 'exif', 'gettext', 'mcrypt', 'memcache', 'pcntl', 'shmop', 'sockets', 'ssh2', 'sysvmsg', 'sysvsem', 'sysvshm', 'wddx', 'xsl']
+
+docker - works = 13 extensions
+['Xdebug', 'bz2', 'imagick', 'imap', 'intl', 'mongodb', 'pdo_pgsql', 'pdo_sqlite', 'pgsql', 'redis', 'soap', 'sqlite3', 'xdebug']
+
