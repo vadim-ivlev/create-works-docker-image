@@ -1,4 +1,3 @@
-
 #  Docker Image of works server
 
 Цель проекта - построение докер-имиджа сервера works.rg.ru максимально близкого
@@ -41,7 +40,7 @@ sudo docker run --rm --name phpfpm -v /path/to/your/app:/var/www/html -p 3000:30
 sudo docker logs phpfpm
 ```
 
-# Listing installed extensions
+# Installed extensions
 
 ```sh
 sudo docker run --rm -it nanoninja/php-fpm php -m
