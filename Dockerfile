@@ -55,37 +55,32 @@ RUN apt-get -y update \
     && php composer-setup.php  \
     && php -r "unlink('composer-setup.php');" \
     && mv composer.phar /usr/local/bin/composer \
+# Redis
+    && echo "Installing redis ****************************************************" \ 
+    && apt-get install -y  redis-server \
 # Nginx    
-    && apt-get install -y nginx && service nginx start
+    && apt-get install -y nginx 
+
+# redis port
+EXPOSE 6379
+
+# forward request and error logs to docker log collector
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+#	&& ln -sf /dev/stderr /var/log/nginx/error.log
+
+
+RUN  ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Nginx port
+EXPOSE 80
+
+#STOPSIGNAL SIGTERM
+
+
+# defaults for an executing container
+CMD bash -c "service redis-server start && php-fpm & nginx -g 'daemon off;'"
 
 
 
 
-# RUN /files/functions.sh
-    # && docker-php-ext-install \
-    # bz2 \
-    # iconv \
-    # mbstring \
-    # mysqli \
-    # pgsql \
-    # pdo_mysql \
-    # pdo_pgsql \
-    # soap \
-    # zip \
-    # && docker-php-ext-configure gd \
-    # --with-freetype-dir=/usr/include/ \
-    # --with-jpeg-dir=/usr/include/ \
-    # --with-png-dir=/usr/include/ \
-    # && docker-php-ext-install gd \
-    # && docker-php-ext-configure intl \
-    # && docker-php-ext-install intl \
-    # && yes '' | pecl install imagick && docker-php-ext-enable imagick \
-    # && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
-    # && docker-php-ext-install imap \
-    # && pecl install memcached && docker-php-ext-enable memcached \
-    # && pecl install mongodb && docker-php-ext-enable mongodb \
-    # && pecl install redis && docker-php-ext-enable redis \
-    # && pecl install xdebug && docker-php-ext-enable xdebug \
-    # && apt-get autoremove -y --purge \
-    # && apt-get clean \
-    # && rm -Rf /tmp/*
+

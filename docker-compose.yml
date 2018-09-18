@@ -2,9 +2,5 @@ version: '3'
 services:
   phpfpm:
     container_name: phpfpm
-    image: rgru/works:7.0.31-bare
-    #image: rgru/works:7.0.31-ini
-#    entrypoint: php index.php
-  #  volumes:
-#      - /path/to/your/app:/var/www/html
+    image: rgru/works:7.0.31
 

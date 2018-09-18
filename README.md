@@ -1,52 +1,58 @@
-#  Docker Image of works server
+create-works-docker-image
+-----------------------
 
-Цель проекта - построение докер-имиджа сервера works.rg.ru максимально близкого
+Цель проекта - построение докер-имиджа близкого к серверу works.rg.ru по версии PHP и составу установленных расширений.
 
-## Загрузка имиджа
-```sh
-sudo docker pull nanoninja/php-fpm
-```
 
-## Запуск PHP скрипта
+Используется для локальной разработки и тестирования приложений.
 
-### Running image
-Run the PHP-FPM image, mounting a directory from your host.
+
+#### Изготовление имиджа
+Таг:7.0.31 - версия PHP.
 
 ```sh
-sudo docker run -it --name phpfpm -v /path/to/your/app:/var/www/html nanoninja/php-fpm php index.php
+docker build -t rgru/works:7.0.31 .
 ```
 
-or using [Docker Compose](https://docs.docker.com/compose/):
+#### Выгрузка изготовленного имиджа в hub.docker.com
+```sh
+docker login
+
+docker push rgru/works:7.0.31
+```
+-----------------------
+#### Изготовление имиджа из готового контейнера
+
+Альтернативный способ изготовить образ без Dockerfile.
+Стартовать какой нибудь стандартный контейнер. Залогиниться в него и установить все необходимое.
+После этого изготовить образ из измененного контейнера. 
 
 ```sh
-version: '3'
-services:
-  phpfpm:
-    container_name: phpfpm
-    image: nanoninja/php-fpm
-    entrypoint: php index.php
-    volumes:
-      - /path/to/your/app:/var/www/html
+docker commit c16378f943fe local-image-name
+docker tag local-image-name rgru/works:7.0.31
+docker push rgru/works:7.0.31
+
+```
+c16378f943fe - идентификатор контейнера.
+local-image-name - локальное имя нового контейнера
+
+
+
+----------------------
+
+
+#### Загрузка имиджа на компьютер разработчика
+```sh
+sudo docker pull rgru/works:7.0.31
 ```
 
-### Running as server
+Показать перечень установленных PHP расширений
 
 ```sh
-sudo docker run --rm --name phpfpm -v /path/to/your/app:/var/www/html -p 3000:3000 nanoninja/php-fpm php-fpm -S="0.0.0.0:3000" -t="/var/www/html"
+sudo docker run --rm -it rgru/works:7.0.31 php -m
 ```
 
-### Logging
-```sh
-sudo docker logs phpfpm
-```
-
-# Installed extensions
-
-```sh
-sudo docker run --rm -it nanoninja/php-fpm php -m
-```
-
-## Installed extensions
+Installed extensions
  - bz2
  - Core
  - ctype
@@ -95,3 +101,9 @@ sudo docker run --rm -it nanoninja/php-fpm php -m
  - xmlwriter
  - zip
  - zlib
+
+--------------------
+#### Определение перечня необходимых для установки PHP расширений.
+
+Скрипт `missing-php-extensions.py` в папке `scripts/` служит для показа разницы в PHP расширениях между сервером и контейнером.
+Используется при подготовке Dockerfile.

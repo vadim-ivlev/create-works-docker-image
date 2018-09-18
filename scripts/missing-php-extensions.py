@@ -8,6 +8,12 @@ import subprocess
 
 
 def get_ext(cmd):
+    """
+    Takes a list consisting of a command and its arguments.
+    The command is supposed to return a list.
+    The list is splited up by newline symbol and converted to a set.
+    The function return that set.
+    """
     s=subprocess.check_output(cmd).decode("utf-8")
     s.replace('\r','')
     a=s.split()
