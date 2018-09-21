@@ -61,6 +61,10 @@ RUN apt-get -y update \
 # Nginx    
     && apt-get install -y nginx 
 
+# additional stuff
+RUN apt-get install -y htop procps  iputils-ping 
+# RUN pecl install memcache && docker-php-ext-enable memcache 
+
 # redis port
 EXPOSE 6379
 
