@@ -73,6 +73,7 @@ Installed extensions
  - json
  - libxml
  - mbstring
+ - memcache
  - memcached
  - mongodb
  - mysqli
