@@ -65,15 +65,33 @@ RUN apt-get -y update \
 RUN apt-get install -y htop procps  iputils-ping 
 # RUN pecl install memcache && docker-php-ext-enable memcache 
 
-# redis port
-EXPOSE 6379
 
 # forward request and error logs to docker log collector
 #RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 #	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
 
+# forward error logs to docker log collector
 RUN  ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Install memcache extension
+RUN set -x \
+    && apt-get update && apt-get install -y --no-install-recommends unzip libssl-dev libpcre3 libpcre3-dev \
+    && cd /tmp \
+    && curl -sSL -o php7.zip https://github.com/websupport-sk/pecl-memcache/archive/php7.zip \
+    && unzip php7 \
+    && cd pecl-memcache-php7 \
+    && /usr/local/bin/phpize \
+    && ./configure --with-php-config=/usr/local/bin/php-config \
+    && make \
+    && make install \
+    && echo "extension=memcache.so" > /usr/local/etc/php/conf.d/ext-memcache.ini \
+    && rm -rf /tmp/pecl-memcache-php7 php7.zip
+
+
+
+# redis port
+EXPOSE 6379
 
 # Nginx port
 EXPOSE 80
