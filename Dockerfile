@@ -89,6 +89,15 @@ RUN set -x \
     && rm -rf /tmp/pecl-memcache-php7 php7.zip
 
 
+# Install nodejs and npm for pravo.rg.ru
+RUN apt-get install -y  gnupg \
+    && curl -O https://deb.nodesource.com/setup_4.x \
+    && bash setup_4.x \
+    && apt-get install -y nodejs \
+    && npm install -g npm@3.5.2 \
+    && npm i gulp -g
+
+
 
 # redis port
 EXPOSE 6379
