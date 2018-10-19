@@ -1,7 +1,7 @@
 create-works-docker-image
------------------------
+--------------------
 
-Цель проекта - построение докер-имиджа близкого к серверу works.rg.ru по версии PHP и составу установленных расширений.
+Построение докер-имид близких к серверам works pravo  front по версиzv PHP и составу установленных расширений.
 
 
 Используется для локальной разработки и тестирования приложений.
@@ -11,13 +11,25 @@ create-works-docker-image
 
 * rgru/works:7.0.31 - близок по составу к серверам works, subsmag.
 * rgru/works:7.0.31-pravo - близок по составу к серверу pravo (+ nodejs4.9 + npm3.5.2)
+* rgru/works:5.6.38-front - близок по составу к серверу front (+ nodejs4.9 + npm3.5.2)
+* rgru/works:7.2.11-front - близок по составу к серверу front PHP 7.2.11 (+ nodejs4.9 + npm3.5.2)
+ 
+
+смотри  файлы build *  и Dockerfile
+
+
 
 
 
 **Изготовление имиджа**
 
-Таг:7.0.31 - версия PHP.
+цифры в названиях означают версию ПХП
 
+
+```sh
+/.build*.sh
+```
+или
 
 ```sh
 docker build -t rgru/works:7.0.31 .
@@ -67,63 +79,9 @@ sudo docker pull rgru/works:7.0.31
 sudo docker run --rm -it rgru/works:7.0.31 php -m
 ```
 
-Installed extensions
- - bz2
- - Core
- - ctype
- - curl
- - date
- - dom
- - fileinfo
- - filter
- - ftp
- - gd
- - hash
- - iconv
- - imagick
- - imap
- - intl
- - json
- - libxml
- - mbstring
- - memcache
- - memcached
- - mongodb
- - mysqli
- - mysqlnd
- - openssl
- - pcre
- - PDO
- - pdo_mysql
- - pdo_pgsql
- - pdo_sqlite
- - pgsql
- - Phar
- - posix
- - readline
- - redis
- - Reflection
- - session
- - SimpleXML
- - soap
- - sodium
- - SPL
- - sqlite3
- - standard
- - tokenizer
- - xdebug
- - xml
- - xmlreader
- - xmlwriter
- - zip
- - zlib
-
---------------------
-
-
 
 **Определение перечня необходимых для установки PHP расширений.**
 
 
-Скрипт `missing-php-extensions.py` в папке `scripts/` служит для показа разницы в PHP расширениях между сервером и контейнером.
+Скрипты `missing--extensions.sh / py ` в папке `scripts/` служит для показа разницы в PHP расширениях между сервером и контейнером.
 Используется при подготовке Dockerfile.
